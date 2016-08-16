@@ -21,9 +21,23 @@ var Sketch = {
     },
 
     events: function() {
+
+        $(document).on({
+
+            afterValidate: function (event, messages, deferreds) {
+                if (deferreds.length) {
+                    $('#js-create-sketch').show();
+                }
+                return false;
+            }
+        });
+
         $('#js-create-sketch').on('click', '', function(e) {
             e.preventDefault();
             e.stopImmediatePropagation();
+
+            $('#js-create-sketch').hide();
+
             var canvas = JSON.stringify(Sketch.getSketchActions());
             var image = Sketch.canvas.get(0).toDataURL();
 
