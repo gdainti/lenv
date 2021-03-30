@@ -1,2 +1,1 @@
-# Demo:
-http://gdainti.com/
+
